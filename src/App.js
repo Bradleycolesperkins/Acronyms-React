@@ -5,6 +5,8 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 
 import Home from './views/Home';
+import Register from './views/Register';
+import Login from './views/Login';
 
 
 import './App.css';
@@ -14,7 +16,9 @@ function App() {
       <BrowserRouter>
         <div className="App">
           <Header />
-          <Route path="/" component={Home}/>
+            <Route exact path="/" component={Home}/>
+            <Route path="/Register" component={Register}/>
+            <Route path="/Login" component={Login}/>
           <Footer />
         </div>
       </BrowserRouter>
