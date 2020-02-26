@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-class FaqAccordion extends React.Component {
+class FaqAccordion extends Component {
 
     constructor(props) {
         super(props);

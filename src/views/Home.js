@@ -1,18 +1,32 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 import Categories from '../components/Categories';
 import Faq from '../components/Faq';
 import Team from '../components/Team';
 
-function Home() {
-  return (
-    <div className="Home">
-      IM IN HOME
-        <Categories/>
-        <Faq/>
-        <Team/>
-    </div>
-  );
+class Home extends React.Component {
+    render() {
+        const { user } = this.props;
+        return (
+            <div className="Home">
+                {
+                    user &&
+                    <h1>Hi {user}!</h1>
+                }
+                <Categories/>
+                <Faq/>
+                <Team/>
+            </div>
+        );
+    }
 }
 
-export default Home;
+function mapState(state) {
+    const { authentication } = state;
+    const { token } = authentication;
+    return { token };
+}
+
+const connectedHome = connect(mapState)(Home);
+export default connectedHome;

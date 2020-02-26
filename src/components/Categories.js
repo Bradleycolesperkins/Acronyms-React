@@ -9,7 +9,6 @@ function Categories() {
                       <div>
                           <div
                               className="uk-card uk-card uk-card-default uk-card-hover uk-card-body uk-inline uk-border-rounded">
-                              <a className="uk-position-cover" href="category.html"></a>
                               <div className="uk-grid-small" data-uk-grid>
                                   <div className="uk-width-auto uk-text-primary uk-flex uk-flex-middle">
                                       <span data-uk-icon="icon: cog; ratio: 2.6"></span>
@@ -27,7 +26,6 @@ function Categories() {
                       <div>
                           <div
                               className="uk-card uk-card uk-card-default uk-card-hover uk-card-body uk-inline uk-border-rounded">
-                              <a className="uk-position-cover" href="category.html"></a>
                               <div className="uk-grid-small" data-uk-grid>
                                   <div className="uk-width-auto uk-text-primary uk-flex uk-flex-middle">
                                       <span data-uk-icon="icon: users; ratio: 2.6"></span>
@@ -44,7 +42,6 @@ function Categories() {
                       <div>
                           <div
                               className="uk-card uk-card uk-card-default uk-card-hover uk-card-body uk-inline uk-border-rounded">
-                              <a className="uk-position-cover" href="category.html"></a>
                               <div className="uk-grid-small" data-uk-grid>
                                   <div className="uk-width-auto uk-text-primary uk-flex uk-flex-middle">
                                       <span data-uk-icon="icon: settings; ratio: 2.6"></span>
@@ -62,7 +59,6 @@ function Categories() {
                       <div>
                           <div
                               className="uk-card uk-card uk-card-default uk-card-hover uk-card-body uk-inline uk-border-rounded">
-                              <a className="uk-position-cover" href="category.html"></a>
                               <div className="uk-grid-small" data-uk-grid>
                                   <div className="uk-width-auto uk-text-primary uk-flex uk-flex-middle">
                                       <span data-uk-icon="icon: code; ratio: 2.6"></span>
@@ -80,7 +76,6 @@ function Categories() {
                       <div>
                           <div
                               className="uk-card uk-card uk-card-default uk-card-hover uk-card-body uk-inline uk-border-rounded">
-                              <a className="uk-position-cover" href="category.html"></a>
                               <div className="uk-grid-small" data-uk-grid>
                                   <div className="uk-width-auto uk-text-primary uk-flex uk-flex-middle">
                                       <span data-uk-icon="icon: credit-card; ratio: 2.6"></span>
@@ -98,7 +93,6 @@ function Categories() {
                       <div>
                           <div
                               className="uk-card uk-card uk-card-default uk-card-hover uk-card-body uk-inline uk-border-rounded">
-                              <a className="uk-position-cover" href="category.html"></a>
                               <div className="uk-grid-small" data-uk-grid>
                                   <div className="uk-width-auto uk-text-primary uk-flex uk-flex-middle">
                                       <span data-uk-icon="icon: lock; ratio: 2.6"></span>
@@ -116,7 +110,6 @@ function Categories() {
                       <div>
                           <div
                               className="uk-card uk-card uk-card-default uk-card-hover uk-card-body uk-inline uk-border-rounded">
-                              <a className="uk-position-cover" href="category.html"></a>
                               <div className="uk-grid-small" data-uk-grid>
                                   <div className="uk-width-auto uk-text-primary uk-flex uk-flex-middle">
                                       <span data-uk-icon="icon: download; ratio: 2.6"></span>
@@ -134,7 +127,6 @@ function Categories() {
                       <div>
                           <div
                               className="uk-card uk-card uk-card-default uk-card-hover uk-card-body uk-inline uk-border-rounded">
-                              <a className="uk-position-cover" href="category.html"></a>
                               <div className="uk-grid-small" data-uk-grid>
                                   <div className="uk-width-auto uk-text-primary uk-flex uk-flex-middle">
                                       <span data-uk-icon="icon: mail; ratio: 2.6"></span>
