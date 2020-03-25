@@ -20,7 +20,9 @@ import Footer from './components/Footer';
 import Home from './views/Home';
 import Register from './views/Register';
 import Login from './views/Login';
-
+import ListAcronyms from './views/ListAcronyms';
+import ViewAcronym from './views/ViewAcronym';
+import AddNewAcronym from './views/AddNewAcronym';
 
 import './App.css';
 
@@ -42,6 +44,9 @@ class App extends React.Component {
                     <div className="App">
                         <Header />
                         <Route exact path="/" component={Home}/>
+                        <Route exact path="/AcROCKnyms" component={ListAcronyms}/>
+                        <Route name="addNewAcronym" path="/Add-New-AcROCKnym" component={AddNewAcronym}/>
+                        <Route name="viewAcronym" path="/AcROCKnym/:id" component={ViewAcronym}/>
                         <PrivateRoute path="/Register" component={Register}/>
                         <Route path="/Login" component={Login}/>
                         <Footer />

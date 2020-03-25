@@ -1,9 +1,10 @@
 import React, {Component} from 'react';
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
 import { userActions } from '../_actions';
 
 import backgroundHeaderImage from './../assets/images/header.jpg';
+// import Login from "../views/Login";
 
 var sectionStyle = {
     width: "100%",
@@ -15,9 +16,6 @@ var sectionStyle = {
 class Header extends Component {
     constructor(props) {
         super(props);
-        console.log('IN');
-        console.log(userActions.loggedIn());
-
         this.state = {
             loggedIn: userActions.loggedIn()
         };
@@ -26,7 +24,7 @@ class Header extends Component {
 
     logOut(){
         userActions.logout();
-        // refresh?
+        window.location.href = "/";
     }
     render() {
         const { loggedIn } = this.state;

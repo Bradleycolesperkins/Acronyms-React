@@ -6,6 +6,8 @@ import './assets/css/main.css';
 import * as serviceWorker from './serviceWorker';
 import { store } from './_helpers';
 import App from './App';
+import '../node_modules/@fortawesome/fontawesome-free/css/all.css';
+
 
 render(
     <Provider store={store}>

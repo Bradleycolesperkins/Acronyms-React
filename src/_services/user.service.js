@@ -59,7 +59,7 @@ function getById(id) {
 function register(user) {
     const requestOptions = {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { ...authHeader(), 'Content-Type': 'application/json' },
         body: JSON.stringify(user)
     };
 
@@ -93,7 +93,7 @@ function handleResponse(response) {
             if (response.status === 401) {
                 // auto logout if 401 response returned from api
                 logout();
-                window.location.reload(true);
+                // window.location.reload(true);
             }
 
             const error = (data && data.message) || response.statusText;
