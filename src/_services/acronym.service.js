@@ -1,11 +1,10 @@
-// import { authHeader } from '../_helpers';
-
 import {authHeader} from "../_helpers";
 
 export const acronymService = {
     getAllAcronyms,
     getAcronym,
-    addNewAcronym
+    addNewAcronym,
+    searchAcronyms
 };
 
 function getAllAcronyms() {
@@ -24,6 +23,14 @@ function getAcronym(id) {
     return fetch(`/acronym/${id}`, requestOptions).then(handleResponse);
 }
 
+function searchAcronyms(search) {
+    const requestOptions = {
+        method: 'GET',
+    };
+
+    return fetch(`/acronyms/search?q=${search}`, requestOptions).then(handleResponse);
+}
+
 function addNewAcronym(acronym) {
     const requestOptions = {
         method: 'POST',
@@ -35,6 +42,7 @@ function addNewAcronym(acronym) {
 
 
 function handleResponse(response) {
+    console.log('HANDLE:', response);
     return response.text().then(text => {
         const data = text && JSON.parse(text);
         if (!response.ok) {

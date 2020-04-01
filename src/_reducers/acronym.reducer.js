@@ -15,7 +15,6 @@ export function acronyms(state = {}, action) {
                 error: action.error
             };
 
-
         case acronymConstants.GETINDIV_REQUEST:
             return {
                 loading: true

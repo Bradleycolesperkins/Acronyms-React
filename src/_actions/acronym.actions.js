@@ -1,14 +1,12 @@
 import {acronymConstants} from '../_constants';
 import {acronymService} from '../_services';
-import {history} from "../_helpers";
 import {alertActions} from "./alert.actions";
-// import { alertActions } from './';
-// import { history } from '../_helpers';
 
 export const acronymActions = {
     getAllAcronyms,
     getAcronym,
     addNewAcronym,
+    searchAcronyms
 };
 
 function getAllAcronyms() {
@@ -26,6 +24,23 @@ function getAllAcronyms() {
     function success(acronyms) { return { type: acronymConstants.GETALL_SUCCESS, acronyms } }
     function failure(error) { return { type: acronymConstants.GETALL_FAILURE, error } }
 }
+
+function searchAcronyms(search) {
+    return dispatch => {
+        dispatch(request());
+        acronymService.searchAcronyms(search)
+            .then(
+                search => dispatch(success(search)),
+                error => dispatch(failure(error.toString()))
+            );
+    };
+
+
+    function request() { return { type: acronymConstants.GETSEARCH_REQUEST } }
+    function success(search) { return { type: acronymConstants.GETSEARCH_SUCCESS, search } }
+    function failure(error) { return { type: acronymConstants.GETSEARCH_FAILURE, error } }
+}
+
 
 
 function getAcronym(id) {
@@ -48,9 +63,10 @@ function addNewAcronym(acronym) {
         dispatch(request(acronym));
         acronymService.addNewAcronym(acronym)
             .then(
-                acronyms => {
-                    dispatch(success(acronym))
-                    history.push('/AcROCKnym/'+acronym.id);
+                acronym => {
+                    dispatch(success(acronym));
+                    // history.push('/AcROCKnym/'+acronym.id);
+                    window.location.href = '/AcROCKnym/'+acronym.id;
                     dispatch(alertActions.success('Acronym Created successful'));
                 },
                 error => dispatch(failure(error.toString()))

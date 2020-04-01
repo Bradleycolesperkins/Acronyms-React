@@ -40,7 +40,8 @@ class AddNewAcronym extends React.Component {
         this.setState({ submitted: true });
         const { acronym } = this.state;
         if (acronym.acronym && acronym.expansion && acronym.definition) {
-            // this.props.saveAcronym(acronym);
+            this.props.addNewAcronym(acronym);
+            // acronymActions.sa
         }
     }
 

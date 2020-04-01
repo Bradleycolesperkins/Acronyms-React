@@ -1,9 +1,10 @@
 import React, {Component} from 'react';
 import { Link } from 'react-router-dom';
 
-import { userActions } from '../_actions';
+import {acronymActions, userActions} from '../_actions';
 
 import backgroundHeaderImage from './../assets/images/header.jpg';
+import {connect} from "react-redux";
 // import Login from "../views/Login";
 
 var sectionStyle = {
@@ -17,9 +18,17 @@ class Header extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            loggedIn: userActions.loggedIn()
+            loggedIn: userActions.loggedIn(),
         };
+        console.log(props);
+        this.handleChange = this.handleChange.bind(this);
+    }
 
+
+    handleChange(e) {
+        console.log('CHANGE', e);
+        // If the search bar isn't empty
+        this.props.searchAcronyms(e.target.value);
     }
 
     logOut(){
@@ -28,6 +37,8 @@ class Header extends Component {
     }
     render() {
         const { loggedIn } = this.state;
+        const { search } = this.props;
+        console.log('IN RENDER:', this.state, this.props)
         return (
           <div className="Header">
               <header
@@ -100,17 +111,23 @@ class Header extends Component {
                                   <input id="search-hero" className="uk-search-input uk-form-large uk-border-rounded" type="search"
                                          placeholder="Search here"
                                          autoComplete="off"
-                                         data-minchars="1"></input>
+                                         data-minchars="1"
+                                         onChange={this.handleChange}
+                                  ></input>
                                   <div className="awesomplete">
-                                      {/*<ul role="listbox" id="awesomplete_list_1" v-show="isOpen" class="autocomplete-results">*/}
-                                      {/*    <li role="option" aria-selected="true" id="awesomplete_list_1_item_0"*/}
-                                      {/*    class="autocomplete-result">*/}
-                                      {/*        <Link to="/">*/}
-                                      {/*            Login*/}
-                                      {/*            <span class="uk-text-bold">acronym</span> - expansion*/}
-                                      {/*        </Link>*/}
-                                      {/*  </li>*/}
-                                      {/*</ul>*/}
+                                      {search &&
+                                          <ul role="listbox" id="awesomplete_list_1" className="autocomplete-results">
+                                              {search.hasOwnProperty('items') &&
+                                                  search.items.map((acronym, index) =>
+                                                  <li role="option" aria-selected="true" id="awesomplete_list_1_item_0"
+                                                      className="autocomplete-result">
+                                                      <Link to={'/AcROCKnym/'+acronym.id } className="uk-link uk-link-hover2">
+                                                          <span className="uk-text-bold">{acronym.acronym}</span> - {acronym.expansion}
+                                                      </Link>
+                                                  </li>
+                                              )}
+                                          </ul>
+                                      }
                                   </div>
                               </form>
                           </div>
@@ -122,4 +139,16 @@ class Header extends Component {
     }
 }
 
-export default Header;
+function mapState(state) {
+    const { search, acronyms,  authentication } = state;
+    const { token } = authentication;
+    return { token, search, acronyms };
+}
+
+
+const acronymSearchCreators = {
+    searchAcronyms: acronymActions.searchAcronyms
+};
+
+const connectedHeader = connect(mapState, acronymSearchCreators)(Header);
+export default connectedHeader;

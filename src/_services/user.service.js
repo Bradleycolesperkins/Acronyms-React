@@ -24,8 +24,9 @@ function login(email, password) {
             // store user details and jwt token in local storage to keep user logged in between page refreshes
             // localStorage.setItem('user', JSON.stringify(user));
             console.log('TOKEN!!: ', token);
-            localStorage.setItem('token', JSON.stringify(token).token);
-            return token;
+            let tokenParsed = token.token;
+            localStorage.setItem('token', tokenParsed);
+            return tokenParsed;
         });
 }
 
